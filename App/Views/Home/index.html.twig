@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark mb-3">
+    <a class="navbar-brand  bg-dark text-white" href="/">PhoneBook</a>
+    <div class="collapse navbar-collapse align-right">
+        <ul class="navbar-nav ml-auto">
+
+            {% if isLoggedIn == 1 %}
+                <li class="nav-item">
+                    <div class="username_capital">
+                    <a href="/Home/{{ user_id }}/index" class="abba nav-link ">{{ username }}'s Home</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="/Logout/index" class="abba nav-link ">Log out</a>
+                </li>
+
+            {% else %}
+                <li class="nav-item">
+                    <a href="/" class="abba nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/Login/index" class="abba nav-link">Log In</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/Signup/index" class="abba nav-link ">Sign Up</a>
+                </li>
+            {% endif %}
+
+        </ul>
+    </div>
+</nav>
+<div class="user">
+
+</div>
+        {% if isLoggedIn == 1 %}
+         <div class="under_nav">
+             <h1 class="username_capital"> {{ username }}'s Phonebook</h1>
+             <div class="under_nav_items">
+                 <p><a href="/Contact/index">Create Contact</a></p>
+                 <p><a href="/Contact/{{ user_id }}/changepassword">Change Password</a></p>
+             </div>
+         </div>
+            {%
+                include ('./Contact/table.html.twig') with
+                {
+                    username:username,
+                    contactList:contactList
+                }only
+            %}
+
+        {% else %}
+            <div class="under_nav_home">
+                <h1 class="title_centre"> Welcome To Phonebook App </h1>
+                <p class="text_centre"> For using <a href="/Login/index">"Log In"</a> or <a href="/Signup/index">"Sign Up"</a></p>
+            </div>
+            <img class="image" src="phonebook.jpg" alt="" style=" ">
+        {% endif %}
+
+{% endblock %}

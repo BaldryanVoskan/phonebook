@@ -1,0 +1,100 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark mb-3">
+    <a class="navbar-brand  bg-dark text-white" href="/">PhoneBook</a>
+    <div class="collapse navbar-collapse align-right">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a href="/" class="abba nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="/Login/index" class="abba nav-link">Log In</a>
+            </li>
+            <li class="nav-item">
+                <a href="/Signup/index" class="abba nav-link ">Sign Up</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
+          <div class="errors my-4 ">
+              {% for error in errors %}
+                  <div class="erroritem text-danger" >
+                      {{ error }}
+                  </div>
+              {% endfor %}
+          </div>
+            <form class="register-form form-horizontal" method="post" action="">
+                <br>
+                <fieldset>
+                    <div class="form-group">
+                        <label for="name" class="cols-sm-2 control-label">Username</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                <input type="text" class="form-control" name="username" id="name"
+                                       placeholder="Enter Username" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="username" class="cols-sm-2 control-label">Fullname</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                                <input type="text" class="form-control" name="fullname" id="username"
+                                       placeholder="Enter Fullname"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="cols-sm-2 control-label">Email</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope fa"
+                                                                   aria-hidden="true"></i></span>
+                                <input type="text" class="form-control" name="email" id="email"
+                                       placeholder="Enter your Email"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password" class="cols-sm-2 control-label">Password</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock fa-lg"
+                                                                   aria-hidden="true"></i></span>
+                                <input type="password" class="form-control" name="password" id="password"
+                                       placeholder="Enter your Password"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock fa-lg"
+                                                                   aria-hidden="true"></i></span>
+                                <input type="password" class="form-control" name="confirm" id="confirm"
+                                       placeholder="Confirm your Password"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <input type="hidden" name="token" value="{{ token }}">
+                        <input type="submit" class="btn btn-info btn-lg btn-block login-button" name="register" value="Register">
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

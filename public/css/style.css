@@ -1,0 +1,101 @@
+.text_centre {
+    margin-top: 20px;
+    text-align: center;
+    color: black;
+}
+
+.title_centre {
+    text-align: center;
+}
+
+.register-form .input-group-addon {
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid #ced4da;
+    border-right: 0;
+}
+
+.register-form .input-group-addon i {
+    margin-top: 9px;
+}
+#table {
+    width:1060px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.under_nav {
+    margin-left: 150px;
+    margin-right: 200px;
+    margin-bottom: 30px;
+}
+.under_nav h1,p {
+    display: inline;
+
+}
+.under_nav_items {
+    margin-top: 18px;
+    float: right;
+}
+.under_nav_items a {
+    background-color: #FFC312;
+    padding: 10px;
+    color: black;
+
+}
+.under_nav_items a:hover {
+
+    color: white;
+}
+tbody tr td a {
+    background-color: #FFC312;
+    padding: 5px;
+    color: black;
+}
+tbody tr td a:hover {
+    color:white;
+}
+tbody {
+    text-align: center;
+}
+table th {
+    text-align: center;
+}
+.body_home {
+    margin-right: auto;
+    margin-left: auto;
+}
+.user {
+    width: 100px;
+    height: 100px;
+}
+.form_changepassword {
+    margin-top: 100px;
+    width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.form_edit {
+    margin-top: 75px;
+    width: 750px;
+    margin-left: 260px;
+}
+.form_createcontact {
+    margin-top: 75px;
+    width: 750px;
+    margin-left: 260px;
+}
+.under_nav_home {
+    display: flex;
+    flex-direction: column;
+}
+.image {
+    height: 450px;
+    margin-left: 347px;
+}
+.Error-edit-message {
+    margin: 20%;
+    text-align: center;
+}
+.username_capital {
+    text-transform: capitalize;
+}
