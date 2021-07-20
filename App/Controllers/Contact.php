@@ -139,10 +139,11 @@ class Contact extends \Core\Controller
 
             if($contact_item == ''){
                 $contact_item=$contact->getContact($this->route_params['id']);
-                View::renderTemplate('Contact/edit.html.twig', [
-                    'username'=>$username,
-                    'contact' => $contact_item->user_id == $user_id ? $contact_item : null
-                ]);
+                    View::renderTemplate('Contact/edit.html.twig', [
+                        'username'=>$username,
+                        'contact' => $contact_item && $contact_item->user_id == $user_id ? $contact_item : null
+                    ]);
+
             }else {
                 View::renderTemplate('Contact/edit.html.twig', [
                     'username'=>$username

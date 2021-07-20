@@ -124,7 +124,12 @@ class DB
 
     public function first()
     {
-        return $this->results()[0];
+        if(!empty($this->results())){
+            return $this->results()[0];
+        }else {
+            return null;
+        }
+
     }
 
     public function insert($table, $fields = array())
