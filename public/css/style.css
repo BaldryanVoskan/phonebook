@@ -99,3 +99,18 @@ table th {
 .username_capital {
     text-transform: capitalize;
 }
+#pagination {
+    margin-left: 100px;
+}
+.page-link {
+    background-color:black !important;
+    color: white !important;
+    border-color: black !important;
+}
+.active a {
+    border-color: #FFC312 !important;
+    background-color: #FFC312 !important;
+}
+#pagination {
+    margin-left: 531px;
+}

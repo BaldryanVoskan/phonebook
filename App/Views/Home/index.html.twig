@@ -45,7 +45,10 @@
                 include ('./Contact/table.html.twig') with
                 {
                     username:username,
-                    contactList:contactList
+                    contactList:contactList,
+                    page:page,
+                    allContacts:allContacts,
+                    total_pages:total_pages
                 }only
             %}
 
@@ -56,5 +59,4 @@
             </div>
             <img class="image" src="phonebook.jpg" alt="" style=" ">
         {% endif %}
-
 {% endblock %}

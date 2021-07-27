@@ -14,6 +14,7 @@ $user = new User();
 $router->add('', ['controller' => 'Home', 'action' => 'index']);
 $router->add('{controller}/{action}');
 $router->add('{controller}/{id:\d+}/{action}');
+$router->add('{controller}/{id:\d+}/{action}/{page:\d+}');
 $router->add('Signup',['controller'=>'Signup','action'=>'index']);
 $router->add('Login',['controller'=>'Login','action'=>'index']);
 $router->add('Logout',['controller'=>'Logout','action'=>'index']);

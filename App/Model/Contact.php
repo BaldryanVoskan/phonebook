@@ -30,14 +30,27 @@ class Contact
         }
     }
 
-    public function getContacts($user_id) {
-       $data =  $this->_db->get('contacts',array('user_id','=',$user_id));
-        if($data->count()) {
+    public function getContacts($user_id, $offset = 0, $count = 10)
+    {
+        $data = $this->_db->get('contacts', array('user_id', '=', $user_id), $count, $offset);
+
+        if ($data->count()) {
             return $data->results();
         }
         return $this;
 
         }
+
+    public function getAllContacts($user_id)
+    {
+        $data = $this->_db->get('contacts', array('user_id', '=', $user_id));
+
+        if ($data->count()) {
+            return $data->results();
+        }
+            return FALSE;
+    }
+
 
     public function getContact($contactid){
         $data = $this->_db->get('contacts',array('id','=',$contactid));

@@ -86,7 +86,23 @@ class DB
         return $this;
     }
 
-    public function action($action, $table, $where = array())
+    public function  action($action, $table, $where = [], $offset = 0,$count=10)
+    {
+        if (count($where) === 3) {
+            $operators = array('=', '>', '<', '>=', '<=');
+            $field = $where[0];
+            $operator = $where['1'];
+            $value = $where['2'];
+            if (in_array($operator, $operators)) {
+                $sql = "{$action} FROM {$table} WHERE {$field} {$operator} ?  LIMIT {$count} OFFSET {$offset}";
+                if (!$this->query($sql, array($value))->error()) {
+                    return $this;
+                }
+            }
+        }
+        return false;
+    }
+    public function  actionAll($action, $table, $where = [])
     {
         if (count($where) === 3) {
             $operators = array('=', '>', '<', '>=', '<=');
@@ -103,9 +119,13 @@ class DB
         return false;
     }
 
-    public function get($table, $where)
+    public function get($table, $where, $offset = 0,$count = 10)
     {
-        return $this->action('SELECT *', $table, $where);
+        return $this->action('SELECT *', $table, $where, $offset,$count);
+    }
+    public function getAll($table, $where)
+    {
+        return $this->actionAll('SELECT *', $table, $where);
     }
 
     public function getone($table,$string) {
